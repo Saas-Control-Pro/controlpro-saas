@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,24 @@ Route::post('/tema', function (Illuminate\Http\Request $request) {
 
 
 require __DIR__.'/auth.php';
+
+
+
+Route::get('/test-mail', function () {
+    Mail::raw('Correo de prueba', function ($message) {
+        $message->to('dmdesarrollodesarrollo@gmail.com')
+                ->subject('Test Laravel');
+    });
+
+    return 'Correo enviado';
+});
+
+
+Route::prefix('paquetes')->middleware(['auth', 'empresa.activa'])->group(function () {
+
+
+    Route::resource('paquetes', \App\Http\Controllers\PaqueteController::class);
+    Route::resource('motoristas', \App\Http\Controllers\MotoristaController::class);
+    Route::resource('clientes', \App\Http\Controllers\ClienteController::class);
+});
+

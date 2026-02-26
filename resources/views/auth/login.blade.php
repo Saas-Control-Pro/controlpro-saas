@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iniciar Sesión | ControlPro</title>
+    <title>Iniciar Sesión | ControlPro Delivery</title>
 
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
 
@@ -14,9 +14,10 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#1919e6",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#0a0a0c",
+                        primary: "#1e3a8a", // Azul profesional
+                        accent: "#f97316", // Naranja acción
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
                     },
                     fontFamily: {
                         display: ["Inter", "sans-serif"]
@@ -35,7 +36,7 @@
         }
 
         .bg-glow {
-            background: radial-gradient(circle at 50% -20%, rgba(25, 25, 230, 0.15), transparent 70%);
+            background: radial-gradient(circle at 50% -20%, rgba(30, 58, 138, 0.25), transparent 70%);
         }
     </style>
 </head>
@@ -43,15 +44,17 @@
 <body
     class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center font-display antialiased">
 
+    <!-- Glow decorativo -->
     <div class="fixed inset-0 z-0 bg-glow pointer-events-none"></div>
 
     <main class="relative z-10 w-full max-w-md px-6 py-12">
 
         <!-- Header -->
         <div class="flex flex-col items-center mb-10">
+
             <div
-                class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-primary/20">
-                <span class="material-icons-round text-white text-3xl">layers</span>
+                class="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-primary/30">
+                <span class="material-icons-round text-white text-3xl">inventory_2</span>
             </div>
 
             <h1 class="text-3xl font-bold tracking-tight mb-2">
@@ -59,14 +62,14 @@
             </h1>
 
             <p class="text-slate-500 dark:text-slate-400 text-center">
-                Inicia sesión para continuar en ControlPro
+                Accede al panel de ControlPro Delivery
             </p>
         </div>
 
         <!-- Card -->
-        <div class="bg-white dark:bg-[#111114] border border-slate-200 dark:border-slate-800 p-8 rounded-xl shadow-2xl">
+        <div
+            class="bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 p-8 rounded-2xl shadow-2xl">
 
-            <!-- Session Status -->
             @if (session('status'))
                 <div class="mb-4 text-sm text-green-600">
                     {{ session('status') }}
@@ -78,9 +81,9 @@
 
                 <!-- Email -->
                 <div>
-                    <label class="block text-sm font-medium mb-2">Correo Electrónico</label>
+                    <label class="block text-sm font-medium mb-2">Correo electrónico</label>
                     <input type="email" name="email" value="{{ old('email') }}" required autofocus
-                        class="w-full px-4 py-2.5 bg-slate-50 dark:bg-[#18181b] border border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
+                        class="w-full px-4 py-3 bg-slate-50 dark:bg-[#1f2937] border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all">
 
                     @error('email')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -91,7 +94,7 @@
                 <div>
                     <label class="block text-sm font-medium mb-2">Contraseña</label>
                     <input type="password" name="password" required
-                        class="w-full px-4 py-2.5 bg-slate-50 dark:bg-[#18181b] border border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
+                        class="w-full px-4 py-3 bg-slate-50 dark:bg-[#1f2937] border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all">
 
                     @error('password')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -107,15 +110,15 @@
                     </label>
 
                     @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}" class="text-primary hover:underline">
+                        <a href="{{ route('password.request') }}" class="text-primary hover:text-accent transition">
                             ¿Olvidaste tu contraseña?
                         </a>
                     @endif
                 </div>
 
-                <!-- Submit -->
+                <!-- Submit (ACCIÓN EN NARANJA) -->
                 <button type="submit"
-                    class="w-full bg-primary hover:bg-opacity-90 text-white font-semibold py-3 rounded-lg shadow-lg shadow-primary/20 active:scale-[0.98] transition-all">
+                    class="w-full bg-accent hover:opacity-90 text-white font-semibold py-3 rounded-lg shadow-lg shadow-accent/30 active:scale-[0.98] transition-all">
                     Iniciar sesión
                 </button>
 
@@ -124,9 +127,9 @@
 
         <!-- Footer -->
         <p class="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
-            ¿No tienes cuenta?
-            <a href="{{ route('register') }}" class="font-semibold text-primary hover:text-opacity-80 ml-1">
-                Crear cuenta
+            ¿No tienes acceso?
+            <a href="https://wa.me/50300000000" class="font-semibold text-accent hover:opacity-80 ml-1 transition">
+                Solicitar acceso
             </a>
         </p>
 
