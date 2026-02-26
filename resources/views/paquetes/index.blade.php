@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard')
+@section('title', 'Paquetes')
 
 @section('content')
 
@@ -8,73 +8,39 @@
 
         <!-- HEADER -->
         <div>
-            <h1 class="text-2xl font-bold text-slate-800 dark:text-slate-100">Panel General</h1>
+            <h1 class="text-2xl font-bold text-slate-800 dark:text-slate-100">Paquetes</h1>
             <p class="text-slate-500 dark:text-slate-400 text-sm">
-                Resumen en tiempo real de tu operación de paquetería
+                Listado completo de paquetes y su estado actual
             </p>
         </div>
 
-        <!-- MÉTRICAS PRINCIPALES -->
+        <!-- MÉTRICAS RÁPIDAS -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            <!-- Paquetes Hoy -->
             <div
                 class="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
                 <h3 class="text-sm text-slate-700 dark:text-slate-300">Paquetes creados hoy</h3>
                 <p class="text-3xl font-bold text-primary mt-2">0</p>
             </div>
-
-            <!-- En Ruta -->
             <div
                 class="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
                 <h3 class="text-sm text-slate-700 dark:text-slate-300">En ruta</h3>
                 <p class="text-3xl font-bold text-orange-500 mt-2">0</p>
             </div>
-
-            <!-- Entregados -->
             <div
                 class="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
-                <h3 class="text-sm text-slate-700 dark:text-slate-300">Entregados hoy</h3>
+                <h3 class="text-sm text-slate-700 dark:text-slate-300">Entregados</h3>
                 <p class="text-3xl font-bold text-green-500 mt-2">0</p>
             </div>
-
-            <!-- Pendientes -->
             <div
                 class="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
                 <h3 class="text-sm text-slate-700 dark:text-slate-300">Pendientes / Incidencias</h3>
                 <p class="text-3xl font-bold text-red-500 mt-2">0</p>
             </div>
-
         </div>
 
-        <!-- SEGUNDA FILA -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-            <!-- Motoristas Activos -->
-            <div
-                class="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
-                <h3 class="text-sm text-slate-700 dark:text-slate-300 mb-4">Motoristas activos hoy</h3>
-                <p class="text-4xl font-bold text-orange-500">0</p>
-                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Con paquetes asignados en ruta</p>
-            </div>
-
-            <!-- Rendimiento del Día -->
-            <div
-                class="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
-                <h3 class="text-sm text-slate-700 dark:text-slate-300 mb-4">Eficiencia de entrega</h3>
-                <p class="text-4xl font-bold text-green-500">0%</p>
-                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Porcentaje entregado vs creado hoy</p>
-            </div>
-
-        </div>
-
-        <!-- TABLA RECIENTES -->
+        <!-- TABLA DE PAQUETES -->
         <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
-
-            <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">
-                Últimos paquetes registrados
-            </h3>
-
+            <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Listado de Paquetes</h3>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm">
                     <thead>
@@ -105,7 +71,6 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
 
     </div>
