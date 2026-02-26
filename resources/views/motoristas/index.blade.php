@@ -13,26 +13,26 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div
-                class="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
+                class="bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
                 <h3 class="text-sm text-slate-700 dark:text-slate-300">Motoristas activos</h3>
-                <p class="text-3xl font-bold text-orange-500 mt-2">0</p>
+                <p class="text-2xl font-bold text-orange-500 mt-2">0</p>
             </div>
             <div
-                class="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
+                class="bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
                 <h3 class="text-sm text-slate-700 dark:text-slate-300">En ruta</h3>
-                <p class="text-3xl font-bold text-orange-500 mt-2">0</p>
+                <p class="text-2xl font-bold text-orange-500 mt-2">0</p>
             </div>
             <div
-                class="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
+                class="bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
                 <h3 class="text-sm text-slate-700 dark:text-slate-300">Disponibles</h3>
-                <p class="text-3xl font-bold text-green-500 mt-2">0</p>
+                <p class="text-2xl font-bold text-green-500 mt-2">0</p>
             </div>
         </div>
 
-        <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
+        <div class="bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
             <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Listado de Motoristas</h3>
             <div class="overflow-x-auto">
-                <table class="w-full text-sm">
+                <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-800 text-sm">
                     <thead>
                         <tr
                             class="text-left text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">

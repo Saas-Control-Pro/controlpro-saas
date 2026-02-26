@@ -25,7 +25,7 @@ return new class extends Migration
           ->constrained()
           ->onDelete('set null');
 
-    $table->string('rol')->default('owner');
+    $table->enum('rol', ['cliente','recepcion', 'clasificador', 'mensajero', 'despachador', 'administrador', 'auditor', 'admin','propietario'])->default('cliente');
         });
     }
 
@@ -38,6 +38,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->dropColumn(['empresa_id', 'sucursal_id', 'rol']);
         });
     }
 };

@@ -116,6 +116,8 @@
                     @endif
                 </div>
 
+
+
                 <!-- Submit (ACCIÓN EN NARANJA) -->
                 <button type="submit"
                     class="w-full bg-accent hover:opacity-90 text-white font-semibold py-3 rounded-lg shadow-lg shadow-accent/30 active:scale-[0.98] transition-all">
