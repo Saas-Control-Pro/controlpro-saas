@@ -25,6 +25,7 @@ class User extends Authenticatable
         'sucursal_id',
         'rol',
         'estado',
+        'telefono',
         'theme',
 
     ];

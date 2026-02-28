@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ClienteController extends Controller
 {
@@ -14,7 +15,8 @@ class ClienteController extends Controller
     public function index()
     {
         //
-        return view('clientes.index');
+        $vendedores = User::where('rol','=','cliente')->get();
+        return view('clientes.clienteindex',compact('vendedores'));
     }
 
     /**

@@ -1,12 +1,11 @@
 @extends('layouts.admin')
 
-@section('title', 'Paquetes')
+@section('title', 'Clientes')
 
 @section('content')
 
-    <div class="space-y-6">
+    <div class="space-y-8">
 
-        <!-- HEADER + ACCIONES -->
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
 
@@ -30,8 +29,7 @@
 
                 <!-- Buscador -->
                 <div class="flex-1">
-                    <input type="text" name="search" placeholder="Buscar por código, destinatario o motorista..."
-                        value="{{ request('search') }}"
+                    <input type="text" name="search" placeholder="Buscar por cliente" value="{{ request('search') }}"
                         class="w-full px-4 py-2.5 rounded-xl border border-slate-300
                               dark:border-slate-700 dark:bg-slate-900
                               dark:text-slate-100 focus:ring-2 focus:ring-orange-500 focus:outline-none">
@@ -67,48 +65,37 @@
         </div>
 
 
-        <!-- TABLA -->
-        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl shadow border border-slate-200 dark:border-slate-700">
 
+        <div class="bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl shadow-md border border-slate-200 dark:border-slate-800">
+            <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-4">Listado de Clientes</h3>
             <div class="overflow-x-auto">
-                <table class="min-w-full text-sm">
-
-                    <thead class="border-b border-slate-200 dark:border-slate-800">
-                        <tr class="text-left text-slate-600 dark:text-slate-400">
-                            <th class="py-3 px-3">Código</th>
-                            <th class="py-3 px-3">Destinatario</th>
-                            <th class="py-3 px-3">Motorista</th>
-                            <th class="py-3 px-3">Estado</th>
-                            <th class="py-3 px-3">Fecha</th>
-                            <th class="py-3 px-3 text-right">Acciones</th>
+                <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-800 text-sm">
+                    <thead>
+                        <tr
+                            class="text-left text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
+                            <th class="pb-3">Nombre</th>
+                            <th class="pb-3">Correo</th>
+                            <th class="pb-3">Teléfono</th>
+                            <th class="pb-3">Paquetes activos</th>
                         </tr>
                     </thead>
-
-                    <tbody
-                        class="divide-y divide-slate-100 dark:divide-slate-800
-               text-slate-700 dark:text-slate-300">
-
-                        @foreach ($paquetes as $paquete)
-                            <tr class="hover:bg-slate-100 dark:hover:bg-slate-800 transition">
-                                <td class="py-3 px-3 font-semibold text-blue-500">{{ $paquete->codigo }}</td>
-                                <td class="px-3">{{ $paquete->nombre_destinatario }}</td>
-                                <td class="px-3">{{ $paquete->motorista->name ?? 'No asignado' }}</td>
-                                <td class="px-3 text-orange-500 font-semibold">{{ ucfirst($paquete->estado) }}</td>
-
-                                <td class="px-3 text-right">
-                                    <a href="#" class="text-slate-500 hover:text-orange-500 transition">
-                                        Ver
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
+                    <tbody>
+                        <div class="block md:hidden space-y-3">
+                            @foreach ($vendedores as $vendedor)
+                                <tr class="border-b border-slate-100 dark:border-slate-800">
+                                    <td>{{ $vendedor->name }}</td>
+                                    <td>{{ $vendedor->email }}</td>
+                                    <td>{{ $vendedor->telefono }}</td>
+                                    <a href="http://" class="text-black">
+                                        Ver</a>
+                                </tr>
+                            @endforeach
 
 
+                        </div>
                     </tbody>
-
                 </table>
             </div>
-
         </div>
 
     </div>

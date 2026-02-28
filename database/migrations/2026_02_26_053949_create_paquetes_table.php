@@ -23,7 +23,7 @@ return new class extends Migration
     $table->foreignId('usuario_id')->constrained('users')->cascadeOnDelete();       // cliente
     $table->foreignId('motorista_id')->nullable()->constrained('users')->nullOnDelete(); // motorista asignado
 
-    $table->enum('estado', ['Nuevo','En_Bodega','en_ruta','entregado','No_Recibido','cancelado'])->default('Nuevo');
+    $table->enum('estado', ['creado','En_Bodega','en_ruta','entregado','No_Recibido','cancelado','devuelto_al_vendedor'])->default('creado');
 
     // Medidas y precio
     $table->string('descripcion')->nullable();

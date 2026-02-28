@@ -64,11 +64,34 @@ Route::get('/test-mail', function () {
 });
 
 
-Route::prefix('paquetes')->middleware(['auth', 'empresa.activa'])->group(function () {
+Route::prefix('paquete')->middleware(['auth', 'empresa.activa'])->group(function () {
 
+Route::get('/', [\App\Http\Controllers\PaqueteController::class, 'index'])->name('paquetes.index');
+Route::get('/paquetes/create', [\App\Http\Controllers\PaqueteController::class, 'create'])->name('paquetes.create');
+Route::post('/paquetes', [\App\Http\Controllers\PaqueteController::class, 'store'])->name('paquetes.store');
+Route::get('/paquetes/{id}', [\App\Http\Controllers\PaqueteController::class, 'show'])->name('paquetes.show');
+Route::get('/paquetes/{id}/edit', [\App\Http\Controllers\PaqueteController::class, 'edit'])->name('paquetes.edit');
+Route::put('/paquetes/{id}', [\App\Http\Controllers\PaqueteController::class, 'update'])->name('paquetes.update');
+Route::delete('/paquetes/{id}', [\App\Http\Controllers\PaqueteController::class, 'destroy'])->name('paquetes.destroy');
 
-    Route::resource('paquetes', \App\Http\Controllers\PaqueteController::class);
-    Route::resource('motoristas', \App\Http\Controllers\MotoristaController::class);
-    Route::resource('clientes', \App\Http\Controllers\ClienteController::class);
 });
 
+Route::prefix('motorista')->middleware(['auth', 'empresa.activa'])->group(function () {
+    Route::get('/', [\App\Http\Controllers\MotoristaController::class, 'index'])->name('motoristas.index');
+    Route::get('/motoristas/create', [\App\Http\Controllers\MotoristaController::class, 'create'])->name('motoristas.create');
+    Route::post('/motoristas', [\App\Http\Controllers\MotoristaController::class, 'store'])->name('motoristas.store');
+    Route::get('/motoristas/{id}', [\App\Http\Controllers\MotoristaController::class, 'show'])->name('motoristas.show');
+    Route::get('/motoristas/{id}/edit', [\App\Http\Controllers\MotoristaController::class, 'edit'])->name('motoristas.edit');
+    Route::put('/motoristas/{id}', [\App\Http\Controllers\MotoristaController::class, 'update'])->name('motoristas.update');
+    Route::delete('/motoristas/{id}', [\App\Http\Controllers\MotoristaController::class, 'destroy'])->name('motoristas.destroy');
+});
+
+Route::prefix('cliente')->middleware(['auth', 'empresa.activa'])->group(function () {
+    Route::get('/', [\App\Http\Controllers\ClienteController::class, 'index'])->name('clientes.index');
+    Route::get('/clientes/create', [\App\Http\Controllers\ClienteController::class, 'create'])->name('clientes.create');
+    Route::post('/clientes', [\App\Http\Controllers\ClienteController::class, 'store'])->name('clientes.store');
+    Route::get('/clientes/{id}', [\App\Http\Controllers\ClienteController::class, 'show'])->name('clientes.show');
+    Route::get('/clientes/{id}/edit', [\App\Http\Controllers\ClienteController::class, 'edit'])->name('clientes.edit');
+    Route::put('/clientes/{id}', [\App\Http\Controllers\ClienteController::class, 'update'])->name('clientes.update');
+    Route::delete('/clientes/{id}', [\App\Http\Controllers\ClienteController::class, 'destroy'])->name('clientes.destroy');
+});
